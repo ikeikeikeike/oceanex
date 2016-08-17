@@ -9,6 +9,7 @@ defmodule Oceanex.Resource.Droplet do
   List all droplet records.
   """
   def all(opts \\ %{}), do: get("/droplets", opts)
+  def all!(opts \\ %{}), do: all(opts) |> body!
 
   @doc """
   Create a droplet, or multiple droplets.
