@@ -10,7 +10,7 @@ The package can be installed as:
 
     ```elixir
     def deps do
-      [{:oceanex, "~> 0.2.2"}]
+      [{:oceanex, "~> 0.2.3"}]
     end
     ```
 
