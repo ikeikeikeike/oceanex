@@ -16,7 +16,7 @@ defmodule Oceanex.Resource.DomainRecord do
     do: get("/domains/#{domain_name}/records", opts)
 
   @doc """
-  Create a new record to a domain.
+  Create a new record to a domain-record.
 
   ### Examples
 
@@ -27,13 +27,13 @@ defmodule Oceanex.Resource.DomainRecord do
     do: post("/domains/#{domain_name}/records", opts)
 
   @doc """
-  Create a new record to a domain.
+  Get a specific domain-record record.
   """
   def find(domain_name, record_id),
     do: get("/domains/#{domain_name}/records/#{record_id}")
 
   @doc """
-  Create a new record to a domain.
+  Update a domain-record record.
 
   ### Examples
 
@@ -44,7 +44,7 @@ defmodule Oceanex.Resource.DomainRecord do
     do: put("/domains/#{domain_name}/records/#{record_id}", opts)
 
   @doc """
-  Create a new record to a domain.
+  Delete a domain-record record.
   """
   def destroy(domain_name, record_id),
     do: delete("/domains/#{domain_name}/records/#{record_id}")
