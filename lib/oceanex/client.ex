@@ -53,8 +53,7 @@ defmodule Oceanex.Client do
   defp response({:error, error}), do: {:error, error.reason}
 
   defp headers, do: %{"Content-Type" => "application/json",
-    "Authorization" => "Bearer #{@access_token}",
-    "User-Agent" => "oceanex"}
+    "Authorization" => "Bearer #{@access_token}"}
 
   defp gen_endpoint(path), do: @api_base_uri <> path
 end

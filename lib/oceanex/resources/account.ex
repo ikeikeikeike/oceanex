@@ -3,11 +3,13 @@ defmodule Oceanex.Resource.Account do
   DigitalOcean `Account` resource api calls.
   """
 
+  use Bang
   import Oceanex.Client
+
+  @bang {[info: 0], {Oceanex.Client, :body!}}
 
   @doc """
   Get user information
   """
   def info, do: get("/account")
-  def info!, do: info |> body!
 end

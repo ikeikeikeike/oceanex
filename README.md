@@ -10,7 +10,7 @@ The package can be installed as:
 
     ```elixir
     def deps do
-      [{:oceanex, "~> 0.2.1"}]
+      [{:oceanex, "~> 0.2.2"}]
     end
     ```
 
@@ -33,7 +33,7 @@ The package can be installed as:
 
 ## Usage
 
-If you need only body of api response, add ! end of methods. On the other hand
+If you need only body of api response, add bang(!) end of methods. On the other hand
 if you need header, body and response then use normal functions without ! sign.
 
 ```elixir

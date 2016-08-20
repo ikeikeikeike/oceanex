@@ -10,7 +10,7 @@ defmodule Oceanex do
 
       ```elixir
       def deps do
-        [{:oceanex, "~> 0.1.0"}]
+        [{:oceanex, "~> 0.2.1"}]
       end
       ```
 
