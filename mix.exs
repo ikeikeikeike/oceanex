@@ -3,7 +3,7 @@ defmodule Oceanex.Mixfile do
 
   def project do
     [app: :oceanex,
-     version: "0.2.1",
+     version: "0.2.2",
      elixir: "~> 1.3",
      build_embedded: Mix.env == :prod,
      start_permanent: Mix.env == :prod,
@@ -26,6 +26,7 @@ defmodule Oceanex.Mixfile do
     [
       {:httpoison, "~> 0.8.3"},
       {:poison, "~> 2.0"},
+      {:bang, "~> 0.1.0"},
       {:ex_doc, "~> 0.13.0", only: :dev}
     ]
   end

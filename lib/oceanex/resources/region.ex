@@ -3,11 +3,13 @@ defmodule Oceanex.Resource.Region do
   DigitalOcean `Region` resource api calls.
   """
 
+  use Bang
   import Oceanex.Client
+
+  @bang {[all: 0, all: 1], {Oceanex.Client, :body!}}
 
   @doc """
   List all region records.
   """
   def all(opts \\ %{}), do: get("/regions", opts)
-  def all!(opts \\ %{}), do: all(opts) |> body!
 end

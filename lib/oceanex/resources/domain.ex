@@ -3,13 +3,16 @@ defmodule Oceanex.Resource.Domain do
   DigitalOcean `Domain` resource api calls.
   """
 
+  use Bang
   import Oceanex.Client
+
+  @bang {[all: 0, all: 1, create: 1, destroy: 1, find: 1],
+    {Oceanex.Client, :body!}}
 
   @doc """
   List all domain records.
   """
   def all(opts \\ %{}), do: get("/domains", opts)
-  def all!(opts \\ %{}), do: all(opts) |> body!
 
   @doc """
   Create a domain record.
@@ -20,17 +23,14 @@ defmodule Oceanex.Resource.Domain do
   """
   def create(%{name: _, ip_address: _} = opts), do: post("/domains",
     opts)
-  def create!(opts), do: create(opts) |> body!
 
   @doc """
   Get a specific domain record.
   """
   def find(domain_name), do: get("/domains/#{domain_name}")
-  def find!(domain_name), do: find(domain_name) |> body!
 
   @doc """
   Delete a specific domain record.
   """
   def destroy(domain_name), do: delete("/domains/#{domain_name}")
-  def destroy!(domain_name), do: destroy(domain_name) |> body!
 end
