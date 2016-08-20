@@ -11,5 +11,6 @@ defmodule Oceanex.Resource.Size do
   @doc """
   List all size records.
   """
-  def all(opts \\ %{}), do: get("/sizes", opts)
+  def all(opts \\ %{}),
+    do: get("/sizes", opts)
 end

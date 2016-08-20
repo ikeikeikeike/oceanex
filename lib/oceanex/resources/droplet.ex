@@ -17,7 +17,8 @@ defmodule Oceanex.Resource.Droplet do
   @doc """
   List all droplet records.
   """
-  def all(opts \\ %{}), do: get("/droplets", opts)
+  def all(opts \\ %{}),
+    do: get("/droplets", opts)
 
   @doc """
   Create a droplet, or multiple droplets.
@@ -36,48 +37,56 @@ defmodule Oceanex.Resource.Droplet do
   @doc """
   Get a specific droplet record.
   """
-  def find(droplet_id), do: get("/droplets/#{droplet_id}")
+  def find(droplet_id),
+    do: get("/droplets/#{droplet_id}")
 
   @doc """
   Delete a specific droplet.
   """
-  def destroy(droplet_id), do: delete("/droplets/#{droplet_id}")
+  def destroy(droplet_id),
+    do: delete("/droplets/#{droplet_id}")
 
   @doc """
   Delete droplets by tag name.
   """
-  def destroy_by_tag(tag_name), do: delete("/droplets", %{tag_name: tag_name})
+  def destroy_by_tag(tag_name),
+    do: delete("/droplets", %{tag_name: tag_name})
 
   @doc """
   Get a specific droplet kernel records.
   """
-  def kernels(droplet_id), do: get("/droplets/#{droplet_id}/kernels")
+  def kernels(droplet_id),
+    do: get("/droplets/#{droplet_id}/kernels")
 
   @doc """
   Get a specific droplet snapshot records.
   """
-  def snapshots(droplet_id), do: get("/droplets/#{droplet_id}/snapshots")
+  def snapshots(droplet_id),
+    do: get("/droplets/#{droplet_id}/snapshots")
 
   @doc """
   Get a specific droplet backup records.
   """
-  def backups(droplet_id), do: get("/droplets/#{droplet_id}/backups")
+  def backups(droplet_id),
+    do: get("/droplets/#{droplet_id}/backups")
 
   @doc """
   Get a specific droplet action records.
   """
-  def actions(droplet_id), do: get("/droplets/#{droplet_id}/actions")
+  def actions(droplet_id),
+    do: get("/droplets/#{droplet_id}/actions")
 
   @doc """
   Get a specific droplet action records.
   """
-  def action(droplet_id, action_id), do:
-    get("/droplets/#{droplet_id}/actions/#{action_id}")
+  def action(droplet_id, action_id),
+    do: get("/droplets/#{droplet_id}/actions/#{action_id}")
 
   @doc """
   Get a specific droplet neighbor records.
   """
-  def neighbors(droplet_id), do: get("/droplets/#{droplet_id}/neighbors")
+  def neighbors(droplet_id),
+    do: get("/droplets/#{droplet_id}/neighbors")
 
   @doc """
   Enable backups for a droplet.
@@ -174,9 +183,10 @@ defmodule Oceanex.Resource.Droplet do
 
       Oceanex.Resource.Droplet.change_kernel(droplet_id, %{kernel: kernel})
   """
-  def change_kernel(droplet_id, %{kernel: _} = opts),
-    do: post("/droplets/#{droplet_id}/actions", Map.put(opts, :type,
-          "change_kernel"))
+  def change_kernel(droplet_id, %{kernel: _} = opts) do
+    post("/droplets/#{droplet_id}/actions", Map.put(opts, :type,
+      "change_kernel"))
+  end
 
   @doc """
   Enable IPv6 on a droplet.
@@ -187,9 +197,10 @@ defmodule Oceanex.Resource.Droplet do
   @doc """
   Enable private networking on a droplet.
   """
-  def enable_private_networking(droplet_id),
-    do: post("/droplets/#{droplet_id}/actions", %{type:
-          "enable_private_networking"})
+  def enable_private_networking(droplet_id) do
+    post("/droplets/#{droplet_id}/actions", %{type:
+      "enable_private_networking"})
+  end
 
   @doc """
   Take snapshot of a droplet.
@@ -198,9 +209,9 @@ defmodule Oceanex.Resource.Droplet do
 
       Oceanex.Resource.Droplet.snapshot(droplet_id, %{name: name})
   """
-  def snapshot(droplet_id, %{name: _} = opts),
-    do: post("/droplets/#{droplet_id}/actions", Map.put(opts, :type,
-          "snapshot"))
+  def snapshot(droplet_id, %{name: _} = opts) do
+    post("/droplets/#{droplet_id}/actions", Map.put(opts, :type, "snapshot"))
+  end
 
   @doc """
   Call actions on tagged droplets.
