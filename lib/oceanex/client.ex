@@ -43,7 +43,7 @@ defmodule Oceanex.Client do
       _ -> Poison.encode!(opts)
     end
 
-    request(method, gen_endpoint(path), opts, headers, []) |> response
+    request(method, gen_endpoint(path), opts, headers(), []) |> response
   end
 
   defp response({:ok, %HTTPoison.Response{body: nil} = resp}),
